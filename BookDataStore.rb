@@ -1,4 +1,4 @@
-module BookDataStore
+class BookDataStore
 
   def get_author_name id
     return "Shawn"

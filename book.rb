@@ -1,3 +1,4 @@
+require_relative 'BookDataStore.rb'
 
 class BookShop
   def initialize book_id, book_data
@@ -17,3 +18,8 @@ class BookShop
 
 
 end
+
+@obj=BookDataStore.new
+@shop=BookShop.new(142,@obj)
+puts @shop.author
+puts @shop.publisher

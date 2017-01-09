@@ -8,7 +8,7 @@ class BookDataStore
     return "Wiley #{id}"
   end
 
-  def get_isbn id
+  def get_isbn_name id
     return "ASUFDSSFDA#{id}"
   end
 

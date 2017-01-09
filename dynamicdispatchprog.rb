@@ -5,7 +5,8 @@ class BookShop
   def initialize book_id, book_data
     @id=book_id
     @book_data=book_data
-  end 
+    book_data.methods.grep(/^get_(.*)_name$/) { BookShop.mydisplay $1}  
+end 
   
   def self.mydisplay x
     define_method x do
@@ -14,10 +15,7 @@ class BookShop
     end
   end
   
-  mydisplay :author
-  mydisplay :publisher
-  mydisplay :isbn
-
+  
 end
 
 @obj=BookDataStore.new
@@ -25,4 +23,4 @@ end
 puts @shop.author
 puts @shop.publisher
 puts @shop.isbn
-puts "Methods available are: "+@shop.methods.to_s
+puts "Methods available are: "+(@shop.methods-Object.methods).to_s

@@ -7,18 +7,16 @@ class BookShop
     @book_data=book_data
   end 
   
-  def author
-   mydisplay :author
+  def self.mydisplay x
+    define_method x do
+      name=@book_data.send("get_#{x}_name", @id)
+      return "#{x} name is #{name} "
+    end
   end
   
-  def publisher
-   mydisplay :publisher
-  end
- 
-  def mydisplay x
-    name=@book_data.send("get_#{x}_name", @id)
-    return "#{x} name is #{name} "
-  end
+  mydisplay :author
+  mydisplay :publisher
+  mydisplay :isbn
 
 end
 
@@ -26,3 +24,5 @@ end
 @shop=BookShop.new(142,@obj)
 puts @shop.author
 puts @shop.publisher
+puts @shop.isbn
+puts "Methods available are: "+@shop.methods.to_s
